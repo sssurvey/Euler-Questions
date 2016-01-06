@@ -40,6 +40,15 @@ def prime_factors(n):
 
 print(prime_factors())
 
+#known issue
+#Traceback (most recent call last):
+#  File "euler3.py", line 39, in <module>
+#    print(prime_factors(13195))
+#  File "euler3.py", line 34, in prime_factors
+#    factors.append(i)
+#MemoryError
+
+
 '''-------------------------------------------------------------------------'''
 
 
