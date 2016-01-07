@@ -28,6 +28,7 @@ while True:
 
 print('The number is: '+str(int0))
 #the program works, but it will take awhile to run
+#took me about 1 and a half hour
 '''----------------------------------------------------------------------------'''
 
 
