@@ -1,6 +1,6 @@
 #python programing questions No.11
 #in the 20 x20 grid below, four numbers along a diagonal line have been marked in red.
-#08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
+# 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 # 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 # 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
 # 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91
@@ -23,4 +23,22 @@
 
 #The product of these numbers is 26 x 63 x 78 x 14 = 1788696
 #what is the greatest product of four adjacent numbers in the same direction (up, down, left, right or diagonally) in the 20 x 20 gird?
+
+#version 0.1
+
+def readFileToList(rec):
+	file = open("euler00011file.txt","r")
+	for line in file:
+		rec.append(line.split())
+
+def convertInt(rec):
+	return map(int, rec)
+
+rec =[]
+readFileToList(rec)
+rec =map(convertInt, rec)
+
+for i in range(0,20):
+	print rec[i]
+#all file reading done, 2d list created
 
