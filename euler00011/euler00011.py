@@ -34,11 +34,44 @@ def readFileToList(record):
 def convertInt(record):
 	return map(int, record)
 
+def findHlarg(record):
+	hCounter =0
+	vCounter =0
+	hlist =[]
+
+	sum0 =0
+	sum1 =0
+
+	while True:
+		sum0 =record[vCounter][hCounter]*record[vCounter][hCounter +1]*record[vCounter][hCounter +2]*record[vCounter][hCounter +3]
+		hCounter =hCounter +1
+
+		if sum0 > sum1:
+			sum1 =sum0
+
+		if hCounter == 16:
+			vCounter =vCounter +1
+			hCounter =0
+
+		if vCounter ==20:
+			hlist.append(sum1)
+			hlist.append(record[vCounter-1][hCounter +0]) #vCounter -1 because 20 is out of index, 19 is the last line
+			hlist.append(record[vCounter-1][hCounter +1])
+			hlist.append(record[vCounter-1][hCounter +2])
+			hlist.append(record[vCounter-1][hCounter +3])
+			return hlist
+			break
+
+
+
 record =[]
 readFileToList(record)
 record =map(convertInt, record)
-
-for i in range(0,20):
-	print record[i]
 #all file reading done, 2d list created
+#it is a 20 x 20 structure, 
+hBiggest = findHlarg(record) #find the largest adjacent horizontal 4 digits
+
+print hBiggest
+#horizontal biggest number found
+
 
