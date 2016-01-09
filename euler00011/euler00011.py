@@ -38,10 +38,8 @@ def findHlarg(record):
 	hCounter =0
 	vCounter =0
 	hlist =[]
-
 	sum0 =0
 	sum1 =0
-
 	while True:
 		sum0 =record[vCounter][hCounter]*record[vCounter][hCounter +1]*record[vCounter][hCounter +2]*record[vCounter][hCounter +3]
 		hCounter =hCounter +1
@@ -62,8 +60,11 @@ def findHlarg(record):
 			return hlist
 			break
 
+def findVlarg(record):
+	pass
 
 
+'''---------------------------------------------------------'''
 record =[]
 readFileToList(record)
 record =map(convertInt, record)
