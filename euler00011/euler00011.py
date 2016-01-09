@@ -26,19 +26,19 @@
 
 #version 0.1
 
-def readFileToList(rec):
+def readFileToList(record):
 	file = open("euler00011file.txt","r")
 	for line in file:
-		rec.append(line.split())
+		record.append(line.split())
 
-def convertInt(rec):
-	return map(int, rec)
+def convertInt(record):
+	return map(int, record)
 
-rec =[]
-readFileToList(rec)
-rec =map(convertInt, rec)
+record =[]
+readFileToList(record)
+record =map(convertInt, record)
 
 for i in range(0,20):
-	print rec[i]
+	print record[i]
 #all file reading done, 2d list created
 
