@@ -40,5 +40,5 @@ primeNumbers =primeCounter(99999999,1999999)#first arg will always larger then s
 answer0 =sum(primeNumbers)
 print('The sum of all the primes below two million: ' +str(answer0))
 
-#need about 45 mins to finish the calculation
+#need about 333.333 mins to finish the calculation
 '''-------------------------------------------------------------------------------------------------------'''
