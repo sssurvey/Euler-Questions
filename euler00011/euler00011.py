@@ -35,17 +35,20 @@ def convertInt(record):
 	return map(int, record)
 
 def findHlarg(record):
-	hCounter =0
-	vCounter =0
+	hCounter =0; vCounter =0; sum0 =0; sum1 =0; num0 =0; num1 =0; num2 =0; num3 =0
 	hlist =[]
-	sum0 =0
-	sum1 =0
+
 	while True:
 		sum0 =record[vCounter][hCounter]*record[vCounter][hCounter +1]*record[vCounter][hCounter +2]*record[vCounter][hCounter +3]
-		hCounter =hCounter +1
 
 		if sum0 > sum1:
 			sum1 =sum0
+			num0 =record[vCounter][hCounter]
+			num1 =record[vCounter][hCounter +1]
+			num2 =record[vCounter][hCounter +2]
+			num3 =record[vCounter][hCounter +3]
+
+		hCounter =hCounter +1
 
 		if hCounter == 16:
 			vCounter =vCounter +1
@@ -53,15 +56,46 @@ def findHlarg(record):
 
 		if vCounter ==20:
 			hlist.append(sum1)
-			hlist.append(record[vCounter-1][hCounter +0]) #vCounter -1 because 20 is out of index, 19 is the last line
-			hlist.append(record[vCounter-1][hCounter +1])
-			hlist.append(record[vCounter-1][hCounter +2])
-			hlist.append(record[vCounter-1][hCounter +3])
+			hlist.append(num0) #vCounter -1 because 20 is out of index, 19 is the last line
+			hlist.append(num1)
+			hlist.append(num2)
+			hlist.append(num3)
 			return hlist
 			break
 
 def findVlarg(record):
 	pass
+
+def findVlarg(record):
+	hCounter =0; vCounter =0; sum0 =0; sum1 =0; num0 =0; num1 =0; num2 =0; num3 =0
+	vlist =[]
+	
+	while True:
+		sum0 =record[vCounter][hCounter]*record[vCounter +1][hCounter]*record[vCounter +2][hCounter]*record[vCounter +3][hCounter]
+
+		if sum0 > sum1:
+			sum1 =sum0
+			num0 =record[hCounter][vCounter]
+			num1 =record[hCounter][vCounter +1]
+			num2 =record[hCounter][vCounter +2]
+			num3 =record[hCounter][vCounter +3]
+
+		vCounter =vCounter +1
+
+		if vCounter == 16:
+			hCounter =hCounter +1
+			vCounter =0
+
+		if hCounter ==20:
+			vlist.append(sum1)
+			vlist.append(num0) #vCounter -1 because 20 is out of index, 19 is the last line
+			vlist.append(num1)
+			vlist.append(num2)
+			vlist.append(num3)
+			return vlist
+			break
+
+
 
 
 '''---------------------------------------------------------'''
@@ -71,8 +105,10 @@ record =map(convertInt, record)
 #all file reading done, 2d list created
 #it is a 20 x 20 structure, 
 hBiggest = findHlarg(record) #find the largest adjacent horizontal 4 digits
-
+vBiggest = findVlarg(record)
 print hBiggest
+print vBiggest
+
 #horizontal biggest number found
 
 
