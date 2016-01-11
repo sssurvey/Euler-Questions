@@ -75,10 +75,10 @@ def findVlarg(record):
 
 		if sum0 > sum1:
 			sum1 =sum0
-			num0 =record[hCounter][vCounter]
-			num1 =record[hCounter][vCounter +1]
-			num2 =record[hCounter][vCounter +2]
-			num3 =record[hCounter][vCounter +3]
+			num0 =record[vCounter][hCounter]
+			num1 =record[vCounter +1][hCounter]
+			num2 =record[vCounter +2][hCounter]
+			num3 =record[vCounter +3][hCounter]
 
 		vCounter =vCounter +1
 
@@ -95,6 +95,11 @@ def findVlarg(record):
 			return vlist
 			break
 
+def reArangeLR(): #rearange the whole 2d list as this direction "\"
+	pass
+
+def rearangeRL(): #rearange the whole 2d list as this direction "/"
+	pass
 
 
 
@@ -106,8 +111,8 @@ record =map(convertInt, record)
 #it is a 20 x 20 structure, 
 hBiggest = findHlarg(record) #find the largest adjacent horizontal 4 digits
 vBiggest = findVlarg(record)
-print hBiggest
-print vBiggest
+print ('This is the biggest product you can get from horizontal adjacent digits: ' +str(hBiggest))
+print ('This is the biggest product you can get from vertical adjacent digits: ' +str(vBiggest))
 
 #horizontal biggest number found
 
