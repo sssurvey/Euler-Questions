@@ -63,8 +63,6 @@ def findHlarg(record):
 			return hlist
 			break
 
-def findVlarg(record):
-	pass
 
 def findVlarg(record):
 	hCounter =0; vCounter =0; sum0 =0; sum1 =0; num0 =0; num1 =0; num2 =0; num3 =0
@@ -95,11 +93,72 @@ def findVlarg(record):
 			return vlist
 			break
 
-def reArangeLR(): #rearange the whole 2d list as this direction "\"
-	pass
+def reArangeLR(record): #scan it this way / vertically scanned
+	hCounter =0
+	vCounter =3
+	sum0 =0
+	sum1 =0; num0 =0; num1 =0; num2 =0; num3 =0
+	vlist =[]
 
-def rearangeRL(): #rearange the whole 2d list as this direction "/"
-	pass
+	while True:
+		sum0 =record[vCounter][hCounter]*record[vCounter-1][hCounter+1]*record[vCounter-2][hCounter+2]*record[vCounter-3][hCounter+3]
+
+		if sum0 >sum1:
+			sum1 =sum0
+			num0 =record[vCounter][hCounter]
+			num1 =record[vCounter -1][hCounter +1]
+			num2 =record[vCounter -2][hCounter +2]
+			num3 =record[vCounter -3][hCounter +3]
+
+		vCounter =vCounter +1
+		if vCounter == 19:
+			hCounter =hCounter +1
+			vCounter =3
+
+		if hCounter == 16:
+			vlist.append(sum1)
+			vlist.append(num0) 
+			vlist.append(num1)
+			vlist.append(num2)
+			vlist.append(num3)
+			return vlist
+			break
+
+
+def rearangeRL(record): #reverse of of previous function
+	hCounter =16
+	vCounter =0
+	sum0 =0
+	sum1 =0; num0 =0; num1 =0; num2 =0; num3 =0
+	vlist =[]
+
+	while True:
+		sum0 =record[vCounter][hCounter]*record[vCounter+1][hCounter+1]*record[vCounter+2][hCounter+2]*record[vCounter+3][hCounter+3]
+
+		if sum0 >sum1:
+			sum1 =sum0
+			num0 =record[vCounter][hCounter]
+			num1 =record[vCounter +1][hCounter +1]
+			num2 =record[vCounter +2][hCounter +2]
+			num3 =record[vCounter +3][hCounter +3]
+
+		vCounter =vCounter +1
+
+		if vCounter == 16:
+			hCounter =hCounter -1
+			vCounter =0
+
+		if hCounter == 0:
+			vlist.append(sum1)
+			vlist.append(num0) 
+			vlist.append(num1)
+			vlist.append(num2)
+			vlist.append(num3)
+			return vlist
+			break
+
+
+
 
 
 
@@ -113,6 +172,8 @@ hBiggest = findHlarg(record) #find the largest adjacent horizontal 4 digits
 vBiggest = findVlarg(record)
 print ('This is the biggest product you can get from horizontal adjacent digits: ' +str(hBiggest))
 print ('This is the biggest product you can get from vertical adjacent digits: ' +str(vBiggest))
+print ('This is the biggest product you can get from / adjacent digits: ' +str(reArangeLR(record)))
+print ('This is the biggest product you can get from \ adjacent digits: ' +str(rearangeRL(record)))
 
 #horizontal biggest number found
 
