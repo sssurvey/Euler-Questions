@@ -17,7 +17,7 @@
 #version 0.1
 
 def makeTrian(input0):
-    trian =0; divider =1; temp0 =0; listOfD =[]; sum0 =0; number =7
+    trian =0; divider =1; temp0 =0; listOfD =[]; sum0 =0; number =1
 
     trian = number*(number+ 1)/2
 
