@@ -17,59 +17,55 @@
 #version 0.1
 
 def makeTrian():
-    number =4
     trian =0
     divider =1
     temp0 =0
     listOfD =[]
     sum0 =0
+    number =7
 
-    for i in range(0,5):
-        trian = number*(number+ 1)/2
+    trian = number*(number+ 1)/2
 
-        while True:
-            temp0 =trian %divider #test if trian can be divided in to int
-            print (temp0)
+    while True:
+        temp0 =trian %divider #test if trian can be divided in to int
+        print ('The remainder is: '+str(temp0))
+        print ('The trian is: '+str(trian))
 
-            if temp0 ==0:
-                listOfD.append(divider)
-                print('append')
-            if temp0 !=0:
-                print('do nothing to list, increase divider')
+        if temp0 ==0:
+            print('append')
+            listOfD.append(divider)
 
-            divider =divider +1 #increase divider
             print(listOfD)
+        if temp0 !=0:
+            print('do nothing to list, increase divider')
+
+            
 
 
-            if divider == trian and len(listOfD) < 5:
-                listOfD.append(divider)
-                print('Trian need increase--')
-                break
+        if divider == trian and len(listOfD) < 6:
+            print('Trian need increase--')
+            number =number +1
 
-            if len(listOfD)==5:
-                sys.exit('x')
+            trian = number*(number+ 1)/2
 
-
-
+            listOfD =[]
+	        #break
 
 
+        if len(listOfD)==6:
+            break
 
-                '''if len(listOfD) ==5:
-                    print('Done!')
-                    for i in range(0, len(listOfD)):
-                        sum0 =listOfD[i]+sum0
-                        print(sum0)
-                    print('finished')
-                    print(listOfD)
-                    print("number" +str(number))
-                    sys.exit("done")
-
-                '''
+        divider =divider +1 #increase divider
+        print(listOfD)
+        print("this is the------------------------------"+str(number))
 
 
-        print('test')
-        listOfD =[]
-        number =number +1
+
+
+
+     #   print('test')
+     #   listOfD =[]
+     #   number =number +1
 
 '''----------------------------------------------------------'''
 
