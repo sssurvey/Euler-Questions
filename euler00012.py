@@ -16,13 +16,8 @@
 
 #version 0.1
 
-def makeTrian():
-    trian =0
-    divider =1
-    temp0 =0
-    listOfD =[]
-    sum0 =0
-    number =7
+def makeTrian(input0):
+    trian =0; divider =1; temp0 =0; listOfD =[]; sum0 =0; number =7
 
     trian = number*(number+ 1)/2
 
@@ -30,47 +25,36 @@ def makeTrian():
         temp0 =trian %divider #test if trian can be divided in to int
         print ('The remainder is: '+str(temp0))
         print ('The trian is: '+str(trian))
+        print ('The divider is :'+str(divider))
 
         if temp0 ==0:
             print('append')
             listOfD.append(divider)
-
             print(listOfD)
         if temp0 !=0:
             print('do nothing to list, increase divider')
-
-            
-
-
-        if divider == trian and len(listOfD) < 6:
+        if divider == trian and len(listOfD) < input0+1:
             print('Trian need increase--')
             number =number +1
-
+            divider =0
+            print('divider reset')
             trian = number*(number+ 1)/2
-
             listOfD =[]
+            print('list reset')
 	        #break
 
 
-        if len(listOfD)==6:
-            break
+        if len(listOfD)==input0+1:
+        	return listOfD
+        	break
 
         divider =divider +1 #increase divider
         print(listOfD)
-        print("this is the------------------------------"+str(number))
-
-
-
-
-
-     #   print('test')
-     #   listOfD =[]
-     #   number =number +1
-
 '''----------------------------------------------------------'''
 
 
 
-print (makeTrian())
+finalList =makeTrian(6)
+print(finalList[len(finalList) -1])
 
 
