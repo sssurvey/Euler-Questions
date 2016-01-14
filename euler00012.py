@@ -54,7 +54,7 @@ def makeTrian(input0):
 
 
 
-finalList =makeTrian(6)
+finalList =makeTrian(500)
 print(finalList[len(finalList) -1])
 
 
